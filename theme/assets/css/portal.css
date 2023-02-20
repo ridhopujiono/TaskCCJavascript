@@ -11551,3 +11551,7 @@ button.close:focus {
     width: 100%;
   }
 }
+
+.form-control {
+  display: unset;
+  width: unset;}

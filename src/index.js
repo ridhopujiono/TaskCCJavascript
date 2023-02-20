@@ -8,25 +8,34 @@ function get_video_learning(video_learning){
 const payload = {
         "senin": [{
             "name": "Send weekly schedule and FAQ on Group Class",
-            placeholder : function(greeting, batch, week, video_learning, faq, homework_exam, channel){
-                return `Selamat ${greeting}, teman-teman semua! @${batch} Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya.
-
+            placeholder : function(){
+                return `<div> Selamat <input class="form-control" placeholder="Pagi, Siang atau Malam" />, teman-teman semua! <input class="form-control" placeholder="Batch, @B1, @B2 ..." /> Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya.
+                <br>
 Aku mau menginformasikan untuk skema pelatihan bootcamp - Full Stack Web Development minggu ini.
 Di minggu ini teman-teman diwajibkan untuk menonton Video Learning yang ada di LMS di antaranya :
-${get_video_learning(video_learning)}
+<br>
+<br>
+video learning
+<br>
+<br>
 teman-teman bisa klik tab modules untuk melihat list topik di minggu ini,
 dan juga akan ada Homework yang teman-teman harus kerjakan dan selesaikan dan submit di LMS sebelum Live Session berlangsung. Keterlambatan pengumpulan dapat mengakibatkan berkurangnya nilai Homework.
-
+<br>
+<br>
 Live session akan berlangsung setiap hari Minggu, pukul 10.00 - 12.00 WIB dan jika ada kelas tambahan/perubahan akan diinformasikan, dan Live Session ini juga wajib teman-teman ikuti karena akan membahas Homework/Hands-on  yang sudah teman-teman kerjakan dan minimal kehadiran 85% sebagai salah satu syarat kelulusan.
-
+<br>
+<br>
 Jika ada pertanyaan, teman-teman bisa submit pertanyaan ke link FAQ berikut ya di mana pertanyaan ini akan dijawab oleh Tutor saat Live Session.
+<br>
+<br>
+Link FAQ Week <input class="form-control" placeholder="Week" />: <input class="form-control" placeholder="Link FAQ" />
 
-Link FAQ Week ${week}: ${faq}
-
+<br>
+<br>
 Oh iya jangan lupa juga untuk Homework/reading/exam di minggu ini ya
 Homework - Express JS & Database Integration - 25 February 2023 23:59
 Exam - Express JS & Database Integration - 25 February 2023 23:59
-                `;
+                </div>`;
             }
         }],
         "rabu" : [
@@ -100,8 +109,12 @@ Exam - Express JS & Database Integration - 25 February 2023 23:59
 };
 
 function generateForm(day){
-
-    let data = payload[day][0].placeholder();
+    let data = payload[day];
+    let temp = [];
+    for(var i = 0; i < data.length; i++){
+        temp.push([data[i].name, data[i].placeholder()])
+    }
+    return (temp);
 }
 
 function generateCard(day, ul){
@@ -153,8 +166,14 @@ function generateTask(day){
 
 function generateMessage(day){
     let title = document.getElementById("modalTitleId").innerHTML = `Task Hari ${day.charAt(0).toUpperCase() + day.slice(1)}`;
-    let getForm = generateForm(day)
-    console.log(getForm)
+    let getForm = generateForm(day);
+    let container = ``;
+    document.querySelector('.modal-body').innerHTML =  ``;
+    for(var i = 0; i < getForm.length; i++) {
+        document.querySelector('.modal-body').innerHTML += `<b>${getForm[i][0]}</b>`;
+        document.querySelector('.modal-body').innerHTML += getForm[i][1];
+    }
+    modal.show()
 }
 
 generateTask("senin");
