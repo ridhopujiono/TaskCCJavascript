@@ -1,0 +1,36 @@
+[
+    {
+        "senin": [{
+            "name": "Send weekly schedule and FAQ on Group Class",
+            "greeting": "",
+            "video_learning": [],
+            "jadwal_live": [],
+            "faq" : "",
+            "homework_exam": [],
+            "channel" : ""
+        }],
+        "rabu" : [
+            {
+                "name": "Send Live Discussion with Astor Schedule on Group Class",
+                "tanggal": "",
+                "waktu": "",
+                "channel" : ""
+            },
+            {
+                "name": "Send message to Tutor for Live Session schedule",
+                "greeting": "",
+                "nama_cc": "",
+                "major": "",
+                "banyak_sesi": [
+                    {
+                        "hari_tanggal": "",
+                        "waktu": "",
+                        "topik": "",
+                        "zoom": "",
+                        "faq":""
+                    }
+                ]
+            }    
+        ]
+    }
+]
