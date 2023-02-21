@@ -8,4 +8,8 @@
     .form-control-short {
         width: 100px;
     }
+
+    .form-control-long {
+        width: 300px;
+    }
 }

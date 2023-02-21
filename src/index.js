@@ -7,11 +7,17 @@ function sessionTask(sesi, content) {
     }
     return html;
 }
+function shortInput(placeholder) {
+    return `<input class="form-control form-control-short" placeholder="${placeholder}" required />`
+}
+function longInput(placeholder) {
+    return `<input class="form-control form-control-long" placeholder="${placeholder}" required />`
+}
 const payload = {
     "senin": [{
         "name": "Send weekly schedule and FAQ on Group Class",
         placeholder: function (sesi) {
-            return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg"> Selamat <input class="form-control form-control-short" placeholder="pagi, siang " />, teman-teman semua! <input class="form-control form-control-short" placeholder="@batch" /> Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya.
+            return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg"> Selamat ${shortInput('pagi, siang')}, teman-teman semua! ${shortInput('@batch')} Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya.
                 <br>
 Aku mau menginformasikan untuk skema pelatihan bootcamp - Full Stack Web Development minggu ini.
 Di minggu ini teman-teman diwajibkan untuk menonton Video Learning yang ada di LMS di antaranya :
@@ -27,13 +33,13 @@ teman-teman bisa klik tab modules untuk melihat list topik di minggu ini,
 dan juga akan ada Homework yang teman-teman harus kerjakan dan selesaikan dan submit di LMS sebelum Live Session berlangsung. Keterlambatan pengumpulan dapat mengakibatkan berkurangnya nilai Homework.
 <br>
 <br>
-Live session akan berlangsung setiap hari <input class="form-control form-control-short" placeholder="Minggu" />, pukul <input class="form-control form-control-short" placeholder="10.00 - 12.00 " /> WIB dan jika ada kelas tambahan/perubahan akan diinformasikan, dan Live Session ini juga wajib teman-teman ikuti karena akan membahas Homework/Hands-on  yang sudah teman-teman kerjakan dan minimal kehadiran 85% sebagai salah satu syarat kelulusan.
+Live session akan berlangsung setiap hari ${shortInput('Minggu')}, pukul ${shortInput('10.00 - 12.00')} WIB dan jika ada kelas tambahan/perubahan akan diinformasikan, dan Live Session ini juga wajib teman-teman ikuti karena akan membahas Homework/Hands-on  yang sudah teman-teman kerjakan dan minimal kehadiran 85% sebagai salah satu syarat kelulusan.
 <br>
 <br>
 Jika ada pertanyaan, teman-teman bisa submit pertanyaan ke link FAQ berikut ya di mana pertanyaan ini akan dijawab oleh Tutor saat Live Session.
 <br>
 <br>
-${sessionTask(sesi, `Link FAQ Week <input class="form-control form-control-short" placeholder="Week" /> Sesi <input class="form-control form-control-short" placeholder="Sesi" />: <input class="form-control" placeholder="Link FAQ" />`)}
+${sessionTask(sesi, `Link FAQ Week ${shortInput('week')} Sesi ${shortInput('sesi')}: <input class="form-control" placeholder="Link FAQ" />`)}
 
 
 <br>
@@ -50,7 +56,7 @@ Exam - Database - 20 Januari 2023 23:59
         {
             "name": "Send Live Discussion with Astor Schedule on Group Class",
             placeholder: function () {
-                return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg">Selamat <input class="form-control form-control-short" placeholder="pagi, siang " /> teman-teman semua! <input class="form-control form-control-short" placeholder="@batch" />
+                return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg">Selamat ${shortInput('pagi, siang')} teman-teman semua! ${shortInput('@batch')}
                     <br>
                     Aku mau menginformasikan jadwal Live Mentoring bersama Asisten Tutor kita nih!
                     Tapi sebelumnya ada yang udah tahu belum apa itu Live Discussion bersama Asisten Tutor?
@@ -60,7 +66,8 @@ Exam - Database - 20 Januari 2023 23:59
                     Live Mentoring with Asisten Tutor ini akan dilaksanakan 1x seminggu nih teman-teman.
                     <br>
                     Untuk jadwal di minggu ini sebagai berikut ya :
-                    Week <input class="form-control form-control-short" placeholder="Week" /> : <input class="form-control form-control-short" placeholder="Tanggal, Waktu" />
+                    <br>
+                    Week ${shortInput('Week')} : <input class="form-control" placeholder="Jumat, 13 Januari 2023" />
                     <br>
                     So, jangan sampai tidak hadir ya! Aku sangat sarankan untuk semua hadir agar teman-teman bisa memahami dan mengerjakan Homework dengan baik!
                     <br>
@@ -72,40 +79,60 @@ Exam - Database - 20 Januari 2023 23:59
         },
         {
             "name": "Send message to Tutor for Live Session schedule",
-            placeholder: function () {
-                return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg">
-                Selamat pagi kak Reza Nur Rochmat Perkenalkan saya Ridho Pujiono CC Full Stack Web Developer Batch 1. Salam kenal. Aku ingin menginformasikan untuk jadwal kelas kak di minggu ini ya
+            placeholder: function (sesi) {
+                return `
+                ${sessionTask(sesi,
+                    `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg">
+                Selamat pagi kak ${shortInput('Nama tutor')} Perkenalkan saya ${shortInput('Nama CC')} CC ${shortInput('Major - Batch')}. Salam kenal. Aku ingin menginformasikan untuk jadwal kelas kak di minggu ini ya
                 <br>
                 <br>
-                Sesi 1
-                Hari/tanggal :Minggu, 19 Februari 2023
-                Waktu : 10.00 - 12.00
-                Topik : Live Session - Node JS & Restfull API
-                Link Zoom : https://us06web.zoom.us/j/84001146923
+                Sesi ${shortInput('1')} <br>
+                Hari/tanggal : ${longInput('Minggu, 13 Januari 2023')}
+                <br>
+                Waktu : ${shortInput('10.00 - 12.00')}
+                <br>
+                Topik : ${longInput('Live Session -  Database')}
+                <br>
+                Link Zoom : ${longInput('https://us06web.zoom.us/j/84001146923')}
                 <br>
                 <br>
-                Link FAQ : https://docs.google.com/spreadsheets/d/1FBlyTwco8r9v1LvZYaN0Xt3mP1chQptL9jork-ashVk/edit?usp=sharing
+                Link FAQ : ${longInput('https://docs.google.com/spreadsheets/d/1FBlyTwco8r9v1LvZYaN0Xt3mP1chQptL9jork-ashVk/edit?usp=sharing')}
                 <br>
                 <br>
                 Mohon konfirmasinya terkait jadwal di atas. Terimakasih.
                 </div>
-                <br>`
+                <br>
+                <hr>`
+                )}
+                `
             }
         }
     ],
     "sabtu": [{
-        "name": "Reminder student on Class Group for Live Session H-1",
-        "greeting": "",
-        "banyak_sesi": [
-            {
-                "hari_tanggal": "",
-                "waktu": "",
-                "topik": "",
-                "tutor": "",
-                "zoom": "",
-                "faq": ""
-            }
-        ]
+        "name": "Reminder student on Class Group for Live Session",
+        placeholder: function (sesi) {
+            return `
+            <div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg">Halo halo kalian semua, selamat ${shortInput('pagi. siang')} nih ${shortInput('@batch')}
+            <br><br>
+            Jangan lupa ya kita besok ada live session nih. Yang akan dilaksanakan pada:
+            <br><br><br>
+            ${sessionTask(sesi, `
+            Sesi ${shortInput('1')}<br>
+            Hari/tanggal : ${longInput('Minggu, 19 Februari 2023')}<br>
+            Waktu : ${shortInput('10.00 - 12.00')}<br>
+            Topik : ${longInput('Live Session - Node JS & Restful API')}<br>
+            Tutor : ${longInput('Reza Nur Rochmat')}
+            <br><br>
+            Link Zoom : ${longInput('https://us06web.zoom.us/j/84001146923')}
+            <br><br>
+            Link FAQ: <br>
+            ${longInput('https://docs.google.com/spreadsheets/d/1FBlyTwco8r9v1LvZYaN0Xt3mP1chQptL9jork-ashVk/edit?usp=sharing')}
+            <br><br>
+            `)}
+            Dimohon kehadiran teman teman dan usahakan tepat waktu ya teman teman. Terimakasih.
+            </div>`;
+        }
+
     }],
     "minggu": [
         {
@@ -129,10 +156,14 @@ function generateForm(day) {
     let data = payload[day];
     let temp = [];
     let sesi = prompt("Berapa sesi ?");
-    for (var i = 0; i < data.length; i++) {
-        temp.push([data[i].name, data[i].placeholder(parseInt(sesi))])
+    if (sesi.length > 0) {
+        for (var i = 0; i < data.length; i++) {
+            temp.push([data[i].name, data[i].placeholder(parseInt(sesi))])
+        }
+        return (temp);
+    } else {
+        return false;
     }
-    return (temp);
 }
 
 function generateCard(day, ul) {
@@ -185,13 +216,18 @@ function generateTask(day) {
 function generateMessage(day) {
     let title = document.getElementById("modalTitleId").innerHTML = `Task Hari ${day.charAt(0).toUpperCase() + day.slice(1)}`;
     let getForm = generateForm(day);
-    let container = ``;
-    document.querySelector('.modal-body').innerHTML = ``;
-    for (var i = 0; i < getForm.length; i++) {
-        document.querySelector('.modal-body').innerHTML += `<div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration"><b>${getForm[i][0]}</b> </div>`;
-        document.querySelector('.modal-body').innerHTML += getForm[i][1];
+
+    if (getForm != false) {
+        let container = ``;
+        document.querySelector('.modal-body').innerHTML = ``;
+        for (var i = 0; i < getForm.length; i++) {
+            document.querySelector('.modal-body').innerHTML += `<div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration"><b>${getForm[i][0]}</b> </div>`;
+            document.querySelector('.modal-body').innerHTML += getForm[i][1];
+        }
+        modal.show()
+    } else {
+        return false;
     }
-    modal.show()
 }
 
 generateTask("senin");

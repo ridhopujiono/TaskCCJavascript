@@ -14036,6 +14036,10 @@ button.close:focus {
   width: unset;
 }
 
+.form-control-long {
+  width: 500px
+}
+
 .modal-xl>.modal-content>.modal-body>div {
   padding: 10px;
   font-size: 17px;
