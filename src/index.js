@@ -17,7 +17,7 @@ const payload = {
     "senin": [{
         "name": "Send weekly schedule and FAQ on Group Class",
         placeholder: function (sesi) {
-            return `<div style="border-left: 3px solid #6262626b;padding-left: 20px;padding-bottom: 22px;" class="text-msg shadow-sm"> Selamat ${shortInput('pagi, siang')}, teman-teman semua! ${shortInput('@batch')} Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya.
+            return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg mb-3"> Selamat ${shortInput('pagi, siang')}, teman-teman semua! ${shortInput('@batch')} Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya.
                 <br>
 Aku mau menginformasikan untuk skema pelatihan bootcamp - Full Stack Web Development minggu ini.
 Di minggu ini teman-teman diwajibkan untuk menonton Video Learning yang ada di LMS di antaranya :
@@ -56,7 +56,7 @@ Exam - Database - 20 Januari 2023 23:59
         {
             "name": "Send Live Discussion with Astor Schedule on Group Class",
             placeholder: function () {
-                return `<div style="border-left: 3px solid #6262626b;padding-left: 20px;padding-bottom: 22px;" class="text-msg shadow-sm">Selamat ${shortInput('pagi, siang')} teman-teman semua! ${shortInput('@batch')}
+                return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg mb-3">Selamat ${shortInput('pagi, siang')} teman-teman semua! ${shortInput('@batch')}
 <br>
 Aku mau menginformasikan jadwal Live Mentoring bersama Asisten Tutor kita nih!
 Tapi sebelumnya ada yang udah tahu belum apa itu Live Discussion bersama Asisten Tutor?
@@ -80,7 +80,7 @@ Terima kasih. Happy Learning! </div>
             "name": "Send message to Tutor for Live Session schedule",
             placeholder: function (sesi) {
                 return `
-                ${sessionTask(sesi,`<div style="border-left: 3px solid #6262626b;padding-left: 20px;padding-bottom: 22px;" class="text-msg shadow-sm">
+                ${sessionTask(sesi,`<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg mb-3">
 Selamat pagi kak ${shortInput('Nama tutor')} Perkenalkan saya ${shortInput('Nama CC')} CC ${shortInput('Major - Batch')}. Salam kenal. Aku ingin menginformasikan untuk jadwal kelas kak di minggu ini ya
 <br>
 <br>
@@ -98,16 +98,14 @@ Link FAQ : ${longInput('https://docs.google.com/spreadsheets/d/1FBlyTwco8r9v1LvZ
 <br>
 <br>
 Mohon konfirmasinya terkait jadwal di atas. Terimakasih.
-</div>
-<br>
-<hr>`)}`
+</div>`)}`
             }
         }
     ],
     "sabtu": [{
         "name": "Reminder student on Class Group for Live Session",
         placeholder: function (sesi) {
-            return `<div style="border-left: 3px solid #6262626b;padding-left: 20px;padding-bottom: 22px;" class="text-msg shadow-sm">Halo halo kalian semua, selamat ${shortInput('pagi. siang')} nih ${shortInput('@batch')}
+            return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg mb-3">Halo halo kalian semua, selamat ${shortInput('pagi. siang')} nih ${shortInput('@batch')}
 <br><br>
 Jangan lupa ya kita besok ada live session nih. Yang akan dilaksanakan pada:
 <br><br><br>
