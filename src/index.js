@@ -129,18 +129,55 @@ Dimohon kehadiran teman teman dan usahakan tepat waktu ya teman teman. Terimakas
     "minggu": [
         {
             "name": "Send form feedback Tutor on Class Group",
-            "greeting": "",
-            "major": "",
-            "feedback": ""
+            placeholder: function (sesi){
+                return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg mb-3">Selamat ${shortInput('Pagi, Siang')} teman-teman Bootcamp - Full Stack Web Development ${shortInput('@B1, @B2')} , bagaimana nih pengalaman kalian di Live Session minggu ini? Semoga menyenangkan ya.
+                <br>
+                <br>
+Untuk meningkatkan kualitas pembelajaran Rakamin Academy, kami membutuhkan feedback penilaian Tutor dari teman-teman semua.
+<br>
+<br>
+Teman-teman bisa mengisi di form berikut ya! Terima kasih.
+<br>
+<br>
+Form link feedback :  <br>
+${sessionTask(sesi, `Sesi ${shortInput('1, 2, 3')} :
+ ${longInput('Link Feedback')}`)}
+`
+            }
         },
         {
             "name": "Send Engagement Day Schedule on Group Class",
-            "greeting": "",
-            "sesi_bulan": "",
-            "tanggal": "",
-            "waktu": "",
-            "zoom": ""
-        },
+            placeholder: function (sesi){
+                return `<div style="border-left: 3px solid #6262626b; padding-left: 20px" class="text-msg mb-3">Selamat ${shortInput('Pagi, siang')} teman-teman semua! ${shortInput('@B1, @B2')} Gimana nih kabarnya? Semoga dalam keadaan baik dan sehat ya dan dilancarkan progress pembelajarannya.
+<br>
+<br>
+Aku mau menginformasikan jadwal Engagement Day kita nih!
+Tapi sebelumnya ada yang udah tahu belum apa itu Engagement Day?
+<br>
+<br>
+Jadi… Engagement Day ini berfungsi untuk menjadi media mengakrabkan diri antar siswa. Nggak hanya main games ataupun kuis, kita juga bisa belajar bersama lho! Jadi pasti bakal seru banget!
+<br>
+<br>
+Engagement Day ini akan dilaksanakan 2x sebulan nih teman-teman dengan durasi 1 jam per sesinya.
+<br>
+<br>
+Untuk jadwal Engagement Day kita sebagai berikut ya :
+<br>
+<br>
+<br>
+Sesi ${shortInput('Sesi')} bulan ke ${shortInput('1, 2')} : ${longInput('Rabu, 22 Februari 2023 Pukul 19.00 - 20.00 WIB')}
+<br>
+<br>
+Link zoom : <br>
+${longInput('https://us06web.zoom.us/j/81693211398')}
+<br>
+<br>
+So, jangan sampai tidak hadir ya! Aku sangat sarankan untuk semua hadir agar teman-teman tidak merasa sendiri selama proses pembelajaran dan menambah relasi untuk ke depannya!
+<br>
+<br>
+Terima kasih teman-teman. See you on Engagement Day!</div>`
+            }
+        }
     ]
 };
 

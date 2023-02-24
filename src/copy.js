@@ -21,7 +21,7 @@ function getText(e) {
         // Loop melalui semua elemen di dalam copy_content dan tambahkan teksnya ke variabel teks
         for(let i = 0; i < copy_content.length; i++) {
             teks += i < title_task.length ? title_task[i].innerHTML : '';
-            teks += `<div style="border-left: 3px solid #6262626b; padding-left: 20px; padding-bottom: 22px" class="mb-3 shadow-sm">
+            teks += `<div style="border-left: 3px solid #6262626b; padding-left: 20px; padding-bottom: 50px" class="mb-3 shadow-sm">
             `;
             for (let j = 0; j < copy_content[i].childNodes.length; j++) {
                 var node = copy_content[i].childNodes[j];
