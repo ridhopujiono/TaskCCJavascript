@@ -56,6 +56,6 @@ function copy(text){
     if (window.isSecureContext && navigator.clipboard) {
         navigator.clipboard.writeText(text.innerText);
         // Alert the copied text
-        alert('Text copied to clipboard');
     }
+    alert('Text copied to clipboard');
 }
